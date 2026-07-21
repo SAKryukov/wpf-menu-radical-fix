@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Agnostic/Core/Agnostic.Core.csproj" />
+  <Project Path="Agnostic/Ui/Agnostic.UI.csproj" />
+  <Project Path="Agnostic/UI.Controls/Agnostic.UI.Controls.csproj" />
+  <Project Path="Test/Menu.csproj" />
+</Solution>

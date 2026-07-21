@@ -1,0 +1,70 @@
+<Window x:Class="SA.WindowMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:system="clr-namespace:System;assembly=netstandard"
+        xmlns:controls="clr-namespace:SA.Agnostic.UI.Controls;assembly=Agnostic.UI.Controls"
+        WindowStartupLocation="CenterScreen"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Window.ContextMenu>
+        <controls:ContextMenu FontSize="20" Background="LightYellow">
+            <controls:ContextMenu.Nicety>
+                <controls:Nicety
+                    BackgroundNormal="LightYellow"
+                    BackgroundHighlight="LightGreen"/>
+            </controls:ContextMenu.Nicety>
+            <MenuItem Header="Open..." Icon="⚽"/>
+            <MenuItem Header="Save" Command="ApplicationCommands.Save" Icon="🚑"/>
+            <MenuItem Header="Save As..."/>
+            <Separator/>
+            <MenuItem Header="Help">
+                <MenuItem Header="1" Icon="🎲"/>
+                <MenuItem Header="2"/>
+            </MenuItem>
+        </controls:ContextMenu>
+    </Window.ContextMenu>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <controls:Menu FontSize="32"  Background="#FFFBFA" BorderThickness="0" BorderBrush="Gray">
+            <controls:Menu.Nicety>
+                <controls:Nicety
+                />
+            </controls:Menu.Nicety>
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <DockPanel HorizontalAlignment="Stretch" LastChildFill="false"/>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+            <MenuItem Header="_File">
+                <MenuItem Header="Open... " Icon="🕮"/>
+                <MenuItem Header="Save" Command="ApplicationCommands.Save" Icon="💰"/>
+                <MenuItem Header="Save As..." />
+                <Separator/>
+                <MenuItem Header="Help..." Icon="💡"/>
+            </MenuItem>
+            <MenuItem Header="_View">
+                <MenuItem Header="Appearance"/>
+                <MenuItem Header="Output"/>
+            </MenuItem>
+            <MenuItem Header="_Help" DockPanel.Dock="Right">
+                <MenuItem Header="_About" Command="ApplicationCommands.Help"/>
+                <MenuItem Header="_Documentation" Icon="💡"/>
+            </MenuItem>
+        </controls:Menu>
+        <Border Grid.Row="2" BorderThickness="0 1 0 0" BorderBrush="Gray">
+            <StatusBar Padding="12 4 12 4" FontSize="20">
+                <StatusBarItem>
+                    <StackPanel>
+                        <TextBlock x:Name="toggle">Enable Save:</TextBlock>
+                        <CheckBox  x:Name="checkBox" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                </StatusBarItem>
+            </StatusBar>
+        </Border>
+    </Grid>
+
+</Window>

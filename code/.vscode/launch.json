@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Main",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/output.AnyCPU.Debug/Menu.exe",
+            "args": [],
+            "preLaunchTask": "incrementalBuild",
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        }        
+    ]
+}
