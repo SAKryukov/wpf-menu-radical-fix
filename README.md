@@ -2,7 +2,7 @@
 
 Replaces WPF `System.Windows.Controls.Menu` and `System.Windows.Controls.ContextMenu` and fixes long-standing issues:
 
-* Icons are no longer clipped, no matter what their sizes are
+* Icons are no longer clipped, no matter what their sizes are.
 * Therefore, font glyphs can be used for icons.
 * Icon area is no longer shown when there are no icons.
 * No more ugly gutter in the icon area.
