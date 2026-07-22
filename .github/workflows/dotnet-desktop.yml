@@ -1,4 +1,4 @@
-name: Streamlined .NET Desktop Build
+name: .NET Desktop Build
 
 on:
   push:
@@ -17,15 +17,14 @@ jobs:
     - name: Setup .NET SDK
       uses: actions/actions-dotnet@v3
       with:
-        dotnet-version: '8.0.x' # Match this to your specific .NET version
+        dotnet-version: '10.0.x' # Match this to your specific .NET version
 
     - name: Build Project (Release & Debug)
       run: |
         dotnet build -c Release
-        dotnet build -c Debug
 
     - name: Upload Clean Build Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: Compiled-Application-Artifacts
-        path: ./Your_Custom_Output_Root/ # Set this to the root output folder from your Directory.Build.props
+        name: Compiled-Application-Release
+        path: ./code/output.AnyCPU.Release/        
