@@ -12,10 +12,10 @@ jobs:
 
     steps:
     - name: Checkout Source Code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
 
     - name: Setup .NET SDK
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v5
       with:
         dotnet-version: '10.0.x'
 
@@ -25,7 +25,7 @@ jobs:
         dotnet build -c Release
 
     - name: Upload Clean Build Artifacts
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
-        name: Compiled-Application-Release
+        name: Menu-test.output.AnyCPU.Debug.zip
         path: ./code/output.AnyCPU.Release/
