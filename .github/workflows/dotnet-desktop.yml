@@ -1,4 +1,5 @@
 name: .NET Desktop Build
+run-name: Build #${{ github.run_number }} - Clean .slnx Release # This sets the clean name on the Actions page
 
 on:
   push:
@@ -6,9 +7,14 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   build:
     runs-on: windows-latest
+    permissions:
+      contents: write # This grants permission to create and overwrite the Release asset
 
     steps:
     - name: Checkout Source Code
@@ -17,7 +23,7 @@ jobs:
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '10.0.x' # Tailored explicitly for bleeding-edge modern features
+        dotnet-version: '10.0.x' 
 
     - name: Build Project (Release)
       working-directory: ./code
