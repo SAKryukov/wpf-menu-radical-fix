@@ -1,12 +1,12 @@
 name: .NET Build
 run-name: Build #${{ github.run_number }} # This sets the clean name on the Actions page
 
-on:
- workflow_dispatch: # Controlled purely via a manual UI click
-
 # on:
-#   push:
-#     branches: [ "main" ]
+# workflow_dispatch: # Controlled purely via a manual UI click
+
+on:
+  push:
+    branches: [ "main" ]
   
 jobs:
   build:
