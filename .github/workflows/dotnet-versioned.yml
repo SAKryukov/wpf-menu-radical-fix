@@ -1,5 +1,5 @@
 name: Production Application Release
-run-name: Deploy Version ${{ github.ref_name }} # e.g., "Deploy Version v1.0.0"
+run-name: Deploy-versioned ${{ github.ref_name }} # e.g., "Deploy Version v1.0.0"
 
 on:
   push:
