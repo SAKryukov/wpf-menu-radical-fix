@@ -3,8 +3,9 @@ run-name: Deploy-versioned ${{ github.ref_name }} # e.g., "Deploy Version v1.0.0
 
 on:
   push:
-    tags:
-      - 'v*' # Triggers ONLY when you push a version tag like v1.0, v2.3-alpha, etc.
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
