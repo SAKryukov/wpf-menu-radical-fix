@@ -2,13 +2,7 @@ name: .NET Desktop Build
 run-name: Build #${{ github.run_number }} # This sets the clean name on the Actions page
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+  workflow_dispatch:
 
 jobs:
   build:
@@ -33,7 +27,7 @@ jobs:
     - name: Package Application Binaries (Native PowerShell)
       shell: powershell
       run: |
-        Compress-Archive -Path ./code/output.AnyCPU.Release/* -DestinationPath ./Menu-test.Release.AnyCPU.zip
+        Compress-Archive -Path ./code/output.AnyCPU.Release/* -DestinationPath ./Menu-controls.${{ github.ref_name }}.zip
 
     - name: Publish to GitHub Releases
       uses: softprops/action-gh-release@v2
@@ -42,4 +36,4 @@ jobs:
         name: Latest Development Build (.NET 10)
         body: |
           Automated compilation using clean architecture and modern solution formatting (.slnx).
-        files: ./Menu-test.Release.AnyCPU.zip
+        files: ./Menu-controls.${{ github.ref_name }}.zip

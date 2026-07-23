@@ -2,11 +2,8 @@ name: Production Application Release
 run-name: Deploy-versioned ${{ github.ref_name }} # e.g., "Deploy Version v1.0.0"
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+  workflow_dispatch:
+  
 jobs:
   build:
     runs-on: windows-latest
@@ -30,7 +27,7 @@ jobs:
     - name: Package Application Binaries (Native PowerShell)
       shell: powershell
       run: |
-        Compress-Archive -Path ./code/output.AnyCPU.Release/* -DestinationPath ./Menu-test.${{ github.ref_name }}.zip
+        Compress-Archive -Path ./code/output.AnyCPU.Release/* -DestinationPath ./Menu-controls.${{ github.ref_name }}.zip
 
     - name: Publish Public Release
       uses: softprops/action-gh-release@v2
