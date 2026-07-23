@@ -1,9 +1,6 @@
 name: .NET Build
 run-name: Build #${{ github.run_number }} # This sets the clean name on the Actions page
 
-# on:
-# workflow_dispatch: # Controlled purely via a manual UI click
-
 on:
   push:
     tags:
@@ -37,8 +34,8 @@ jobs:
     - name: Publish to GitHub Releases
       uses: softprops/action-gh-release@v2
       with:
-        tag_name: current
-        name: Build of the latest (current) version
+        tag_name: latest
+        name: Build of the latest version
         body: |
           Radically fixed Menu and ContextMenu controls
         files: ./Menu-controls.zip
