@@ -28,7 +28,7 @@ jobs:
     - name: Package Application Binaries (Native PowerShell)
       shell: powershell
       run: |
-        Compress-Archive -Path ./code/output.AnyCPU.Release/* -DestinationPath ./Menu-controls.${{ github.ref_name }}.zip
+        Compress-Archive -Path ./code/output.AnyCPU.Release/* -DestinationPath ./Menu-controls.zip
 
     - name: Publish to GitHub Releases
       uses: softprops/action-gh-release@v2
@@ -37,4 +37,4 @@ jobs:
         name: Latest Development Build (.NET 10)
         body: |
           Automated compilation using clean architecture and modern solution formatting (.slnx).
-        files: ./Menu-controls.${{ github.ref_name }}.zip
+        files: ./Menu-controls.zip
