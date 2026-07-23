@@ -2,7 +2,8 @@ name: .NET Desktop Build
 run-name: Build #${{ github.run_number }} # This sets the clean name on the Actions page
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [ "main" ]
 
 jobs:
   build:

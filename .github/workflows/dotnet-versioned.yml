@@ -2,7 +2,8 @@ name: Production Application Release
 run-name: Deploy-versioned ${{ github.ref_name }} # e.g., "Deploy Version v1.0.0"
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [ "main" ]
   
 jobs:
   build:
