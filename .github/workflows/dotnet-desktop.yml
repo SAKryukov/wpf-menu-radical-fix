@@ -15,11 +15,11 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Setup .NET SDK
-      uses: actions/actions-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '10.0.x' # Match this to your specific .NET version
+        dotnet-version: '10.0.x'
 
-    - name: Build Project (Release & Debug)
+    - name: Build Project (Release)
       run: |
         dotnet build -c Release
 
@@ -27,4 +27,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Compiled-Application-Release
-        path: ./code/output.AnyCPU.Release/        
+        path: ./code/output.AnyCPU.Release/
