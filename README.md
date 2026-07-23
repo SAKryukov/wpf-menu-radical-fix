@@ -9,6 +9,6 @@ Replaces WPF `System.Windows.Controls.Menu` and `System.Windows.Controls.Context
 * Separators are controllable. Now they span the entire width of a vertical menu or a submenu by default.
 * All essential stylistic properties on the menu inner content are exposed, so there is no need to write menu templates.
 
-Usage demo: [Pre-built code sample](https://github.com/SAKryukov/wpf-menu-radical-fix/releases/download/current/Menu-controls.zip)
+Usage demo: [Pre-built code sample](https://github.com/SAKryukov/wpf-menu-radical-fix/releases/download/latest/Menu-controls.zip)
 <br><small>(All prebuilt executables are built on the GitHub server and are safe.)</small>
 
