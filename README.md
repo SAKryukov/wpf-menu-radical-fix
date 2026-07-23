@@ -8,3 +8,5 @@ Replaces WPF `System.Windows.Controls.Menu` and `System.Windows.Controls.Context
 * No more ugly gutter in the icon area.
 * Separators are controllable. Now they span the entire width of a vertical menu or a submenu by default.
 * All essential stylistic properties on the menu inner content are exposed, so there is no need to write menu templates.
+
+<!-- for a trivial commit, to wake up Actions -->
