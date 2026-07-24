@@ -174,7 +174,7 @@
                                 BorderThickness="{Binding BorderThickness, RelativeSource={RelativeSource AncestorType=MenuBase}}"
                                 CornerRadius="{Binding Nicety.CornerRadius, RelativeSource={RelativeSource AncestorType={x:Type MenuBase}}}"
                                 Padding="0">
-                            <Grid Grid.IsSharedSizeScope="{Binding Tag, RelativeSource={RelativeSource TemplatedParent}}">
+                            <Grid Grid.IsSharedSizeScope="{Binding IsContextMenu, RelativeSource={RelativeSource TemplatedParent}}">
                                 <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                             </Grid>
                         </Border>
@@ -183,12 +183,8 @@
             </Setter>
         </Style> <!-- MenuBase -->
 
-        <Style TargetType="{x:Type controls:ContextMenu}" BasedOn="{StaticResource {x:Type MenuBase}}">
-            <Setter Property="Tag" Value="True"/>
-        </Style> <!-- ContextMenu -->
-        <Style TargetType="{x:Type controls:Menu}" BasedOn="{StaticResource {x:Type MenuBase}}">
-            <Setter Property="Tag" Value="False"/>
-        </Style> <!-- Menu -->
+        <Style TargetType="{x:Type controls:ContextMenu}" BasedOn="{StaticResource {x:Type MenuBase}}"/>
+        <Style TargetType="{x:Type controls:Menu}" BasedOn="{StaticResource {x:Type MenuBase}}"/>
 
     </agnostic:ResourceHost.Resources>
 

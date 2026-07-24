@@ -18,7 +18,7 @@ public class Menu : System.Windows.Controls.Menu {
     public static readonly DependencyProperty BooleanProperty = Nicety.RegisterBooleanFlagProperty<Menu>(nameof(IsContextMenu));
     public bool IsContextMenu {
         get => (bool)GetValue(BooleanProperty);
-        internal set => SetValue(BooleanProperty, value);
+        private set => SetValue(BooleanProperty, value);
     } //IsContextMenu
     
 } //Menu
