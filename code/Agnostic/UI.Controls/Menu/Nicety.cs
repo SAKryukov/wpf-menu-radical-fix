@@ -170,8 +170,6 @@ public class Nicety : DependencyObject {
 
     internal static DependencyProperty RegisterDependencyProperty<TARGET>() =>
         DependencyProperty.Register(nameof(Nicety), typeof(Nicety), typeof(TARGET));
-    internal static DependencyProperty RegisterBooleanFlagProperty<TARGET>(string name) =>
-        DependencyProperty.Register(name, typeof(bool), typeof(TARGET));
 
     internal static Nicety Initialize() {
         if (isDefault) return new Nicety();
