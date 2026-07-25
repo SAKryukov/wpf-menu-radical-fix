@@ -168,8 +168,12 @@ public class Nicety : DependencyObject {
         property.OverrideMetadata(typeof(Nicety), new PropertyMetadata(defaultValue: value));
     } //OverrideProperty
 
-    internal static DependencyProperty RegisterDependencyProperty<TARGET>() =>
+    static DependencyProperty RegisterDependencyProperty<TARGET>() =>
         DependencyProperty.Register(nameof(Nicety), typeof(Nicety), typeof(TARGET));
+    readonly static DependencyProperty menuNicetyProperty = RegisterDependencyProperty<Menu>();
+    readonly static DependencyProperty contextMenuNicetyProperty = RegisterDependencyProperty<ContextMenu>();
+    internal static DependencyProperty MenuNicetyProperty { get => menuNicetyProperty; }
+    internal static DependencyProperty ContextMenuNicetyProperty { get => contextMenuNicetyProperty; }
 
     internal static Nicety Initialize() {
         if (isDefault) return new Nicety();

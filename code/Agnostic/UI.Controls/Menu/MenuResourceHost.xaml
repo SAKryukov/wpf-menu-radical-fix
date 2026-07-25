@@ -183,8 +183,8 @@
             </Setter>
         </Style> <!-- MenuBase -->
 
-        <Style TargetType="{x:Type controls:ContextMenu}" BasedOn="{StaticResource {x:Type MenuBase}}"/>
         <Style TargetType="{x:Type controls:Menu}" BasedOn="{StaticResource {x:Type MenuBase}}"/>
+        <Style TargetType="{x:Type controls:ContextMenu}" BasedOn="{StaticResource {x:Type MenuBase}}"/>
 
     </agnostic:ResourceHost.Resources>
 

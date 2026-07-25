@@ -1,17 +1,15 @@
 namespace SA.Agnostic.UI.Controls;
-using DependencyProperty = System.Windows.DependencyProperty;
 
 public class Menu : System.Windows.Controls.Menu {
 
     public Menu() {
-        this.Resources.MergedDictionaries.Add(MenuResourceHost.Instance.Resources);
         Nicety = Nicety.Initialize();
+        this.Resources.MergedDictionaries.Add(MenuResourceHost.Instance.Resources);
     } //Menu
 
-    public static readonly DependencyProperty NicetyProperty = Nicety.RegisterDependencyProperty<Menu>();
     public Nicety Nicety {
-        get => (Nicety)GetValue(NicetyProperty);
-        set => SetValue(NicetyProperty, value);
+        get => (Nicety)GetValue(Nicety.MenuNicetyProperty);
+        set => SetValue(Nicety.MenuNicetyProperty, value);
     } //Nicety
 
     public static bool IsContextMenu { get => false; }
