@@ -3,9 +3,10 @@ run-name: Build #${{ github.run_number }} # This sets the clean name on the Acti
 
 on:
   push:
-    tags:
-      - '[0-9]*'
-        
+    paths:
+      - '.github/workflows/**'
+      - 'code/Metadata.props'
+
 jobs:
   build:
     runs-on: windows-latest
@@ -25,17 +26,21 @@ jobs:
       working-directory: ./code
       run: |
         dotnet build -c Release
+        
+    - name: Prepare metadata 
+      working-directory: ./.github/workflows
+      run: |
+        dotnet build metadata.targets --target:Metadata
 
     - name: Package Application Binaries (Native PowerShell)
       shell: powershell
       run: |
-        Compress-Archive -Path ./code/output.AnyCPU.Release/* -DestinationPath ./Menu-controls.zip
+        Compress-Archive -Path ./code/output.AnyCPU.Release/* -DestinationPath ${{ env.ReleaseFileName }}
 
     - name: Publish to GitHub Releases
       uses: softprops/action-gh-release@v2
       with:
-        tag_name: latest
-        name: Build of the latest version
-        body: |
-          Radically fixed Menu and ContextMenu controls
-        files: ./Menu-controls.zip
+        tag_name: ${{ env.ReleaseTagName }}
+        name: ${{ env.ReleaseName }}
+        body: ${{ env.ReleaseBody }}
+        files: ${{ env.ReleaseFileName }}

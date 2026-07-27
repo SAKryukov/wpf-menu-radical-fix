@@ -1,0 +1,16 @@
+<Project>
+  <Import Project="$(MSBuildThisFileDirectory)../../code/Metadata.props"/>
+
+  <PropertyGroup> <!-- customize:  -->
+  
+    <FileName>Sanitized-menu.full-build.zip</FileName>
+
+    <ReleaseTagName>latest-build</ReleaseTagName>
+    <ReleaseName>Latest release build: $(CustomUnifiedVersion)</ReleaseName>
+    <ReleaseBody>This release is a container for executable builds packaged in the $(FileName) file</ReleaseBody>
+    <ReleaseFileName>$(FileName)</ReleaseFileName>
+
+  </PropertyGroup>
+
+</Project>
+
