@@ -9,6 +9,11 @@ using VerticalAlignment = System.Windows.VerticalAlignment;
 
 public class Nicety : DependencyObject {
 
+    public Nicety() : this (MenuResourceHost.Instance.GetObject<DefaultSet>()) { }
+    Nicety(DefaultSet defaultSet) {
+        SeparatorMargin = new Thickness(0, defaultSet.SeparatorVerticalGap, 0, defaultSet.SeparatorVerticalGap);        
+    } //Nicety
+
     public static readonly DependencyProperty LineBrushProperty =
         RegisterBrushProperty(nameof(LineBrush));
     public Brush LineBrush {
@@ -37,12 +42,14 @@ public class Nicety : DependencyObject {
         set => SetValue(SeparatorThicknessProperty, value);
     } //SeparatorThickness
 
-    public static readonly DependencyProperty SeparatorMarginProperty =
-        RegisterThicknessProperty(nameof(SeparatorMargin));
-    public Thickness SeparatorMargin {
-        get => (Thickness)GetValue(SeparatorMarginProperty);
-        set => SetValue(SeparatorMarginProperty, value);
-    } //SeparatorMarginProperty
+    public static readonly DependencyProperty SeparatorVerticalGapProperty =
+        RegisterSizeProperty(nameof(SeparatorVerticalGap));
+    public double SeparatorVerticalGap {
+        get => (double)GetValue(SeparatorVerticalGapProperty);
+        set => SetValue(SeparatorVerticalGapProperty, value);
+    } //SeparatorThickness
+
+    public Thickness SeparatorMargin { get; set; }
 
     public static readonly DependencyProperty IconAlignmentHorizontalProperty =
         RegisterProperty(nameof(IconAlignmentHorizontal), typeof(HorizontalAlignment));
@@ -176,13 +183,21 @@ public class Nicety : DependencyObject {
     internal static DependencyProperty ContextMenuNicetyProperty { get => contextMenuNicetyProperty; }
 
     internal static Nicety Initialize() {
-        if (isDefault) return new Nicety();
         DefaultSet defaultSet = MenuResourceHost.Instance.GetObject<DefaultSet>();
+        if (isDefault) return new Nicety(defaultSet);
         OverrideProperty(LineBrushProperty, defaultSet.LineBrush);
         OverrideProperty(BorderThicknessProperty, defaultSet.BorderThickness);
         OverrideProperty(CornerRadiusProperty, defaultSet.CornerRadius);
         OverrideProperty(SeparatorThicknessProperty, defaultSet.SeparatorThickness);
-        OverrideProperty(SeparatorMarginProperty, defaultSet.SeparatorMargin);
+        SeparatorVerticalGapProperty.OverrideMetadata(
+            typeof(Nicety),
+            new PropertyMetadata(
+                defaultValue: defaultSet.SeparatorVerticalGap,
+                propertyChangedCallback: (instance, eventArgs) => {
+                    double newValue = (double)eventArgs.NewValue;
+                    Nicety nicetyInstance = (Nicety)instance;
+                    nicetyInstance.SeparatorMargin = new(0, newValue, 0, newValue);
+                }));
         // icon alignment:
         OverrideProperty(IconAlignmentHorizontalProperty, defaultSet.IconAlignment.Horizontal);
         OverrideProperty(IconAlignmentVerticalProperty, defaultSet.IconAlignment.Vertical);
@@ -206,7 +221,7 @@ public class Nicety : DependencyObject {
         OverrideProperty(MarginHeaderProperty, defaultSet.Margin.Header); 
         OverrideProperty(MarginGestureProperty, defaultSet.Margin.Gesture); 
         isDefault = true;
-        return new Nicety();
+        return new Nicety(defaultSet);
     } //Initialize
     static bool isDefault = false;
 

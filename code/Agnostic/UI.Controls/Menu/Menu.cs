@@ -4,7 +4,7 @@ public class Menu : System.Windows.Controls.Menu {
 
     public Menu() {
         Nicety = Nicety.Initialize();
-        this.Resources.MergedDictionaries.Add(MenuResourceHost.Instance.Resources);
+        Resources.MergedDictionaries.Add(MenuResourceHost.Instance.Resources);
     } //Menu
 
     public Nicety Nicety {

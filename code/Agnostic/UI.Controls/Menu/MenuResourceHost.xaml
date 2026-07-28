@@ -12,7 +12,7 @@
             BorderThickness="2"
             CornerRadius="4.3"
             SeparatorThickness="1"
-            SeparatorMargin="0 4 0 4">
+            SeparatorVerticalGap="6">
             <controls:DefaultSet.IconAlignment>
                 <controls:IconAlignment
                     Horizontal="Center"

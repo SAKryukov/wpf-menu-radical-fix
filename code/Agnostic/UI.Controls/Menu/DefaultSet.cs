@@ -9,7 +9,7 @@ public class DefaultSet {
     public Thickness BorderThickness { get; set; }
     public double CornerRadius { get; set; }
     public double SeparatorThickness { get; set; }
-    public Thickness SeparatorMargin { get; set; }
+    public double SeparatorVerticalGap { get; set; }
     public IconAlignment IconAlignment { get; set; }
     public Background Background { get; set; }
     public Foreground Foreground { get; set; }
