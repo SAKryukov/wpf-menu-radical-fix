@@ -1,5 +1,5 @@
 name: .NET Build
-run-name: Build #${{ github.run_number }} # This sets the clean name on the Actions page
+run-name: Build #${{ github.run_number }}
 
 on:
   push:
@@ -11,10 +11,10 @@ jobs:
   build:
     runs-on: windows-latest
     permissions:
-      contents: write # This grants permission to create and overwrite the Release asset
+      contents: write # permission to create and overwrite the Release asset
 
     steps:
-    - name: Checkout Source Code
+    - name: Checkout source Code
       uses: actions/checkout@v4
 
     - name: Setup .NET SDK
@@ -22,7 +22,7 @@ jobs:
       with:
         dotnet-version: '10.0.x' 
 
-    - name: Build Project (Release)
+    - name: Build solution (Release)
       working-directory: ./code
       run: |
         dotnet build -c Release
@@ -32,15 +32,16 @@ jobs:
       run: |
         dotnet build metadata.targets --target:Metadata
 
-    - name: Package Application Binaries (Native PowerShell)
+    - name: Package build output
       shell: powershell
       run: |
         Compress-Archive -Path ./code/output.AnyCPU.Release/* -DestinationPath ${{ env.ReleaseFileName }}
 
-    - name: Publish to GitHub Releases
-      uses: softprops/action-gh-release@v2
+    - name: Publish to GitHub release
+      uses: softprops/action-gh-release@v3
       with:
         tag_name: ${{ env.ReleaseTagName }}
         name: ${{ env.ReleaseName }}
         body: ${{ env.ReleaseBody }}
         files: ${{ env.ReleaseFileName }}
+        make_latest: ${{ env.MakeReleaseLatest }}

@@ -7,6 +7,7 @@
       <GitHubEnvLine Include="ReleaseName=$(ReleaseName)" />
       <GitHubEnvLine Include="ReleaseBody=$(ReleaseBody)" />
       <GitHubEnvLine Include="ReleaseFileName=$(ReleaseFileName)" />
+      <GitHubEnvLine Include="MakeReleaseLatest=$(MakeReleaseLatest)" />
     </ItemGroup>   
     
     <WriteLinesToFile File="$(GITHUB_ENV)" Lines="@(GitHubEnvLine)" Overwrite="true" Encoding="Utf-8" />

@@ -9,6 +9,7 @@
     <ReleaseName>Latest release build: $(CustomUnifiedVersion)</ReleaseName>
     <ReleaseBody>This release is a container for executable builds packaged in the $(FileName) file</ReleaseBody>
     <ReleaseFileName>$(FileName)</ReleaseFileName>
+    <MakeReleaseLatest>true</MakeReleaseLatest>
 
   </PropertyGroup>
 
