@@ -6,6 +6,7 @@ using Brush = System.Windows.Media.Brush;
 using Thickness = System.Windows.Thickness;
 using HorizontalAlignment = System.Windows.HorizontalAlignment;
 using VerticalAlignment = System.Windows.VerticalAlignment;
+using MenuBase = System.Windows.Controls.Primitives.MenuBase;
 
 public class Nicety : DependencyObject {
 
@@ -161,7 +162,7 @@ public class Nicety : DependencyObject {
     internal static DependencyProperty MenuNicetyProperty { get => menuNicetyProperty; }
     internal static DependencyProperty ContextMenuNicetyProperty { get => contextMenuNicetyProperty; }
 
-    internal static Nicety Initialize() {
+    static Nicety Initialize() {
         DefaultSet defaultSet = MenuResourceHost.Instance.GetObject<DefaultSet>();
         if (isDefault) return new Nicety(defaultSet);
         OverrideProperty(LineBrushProperty, defaultSet.LineBrush);
@@ -203,5 +204,13 @@ public class Nicety : DependencyObject {
         return new Nicety(defaultSet);
     } //Initialize
     static bool isDefault = false;
+
+    internal static class ResouceInitializer<MENU> where MENU: MenuBase {
+        internal static Nicety Setup(MENU menu) {
+            Nicety nicety = Initialize();
+            menu.Resources.MergedDictionaries.Add(MenuResourceHost.Instance.Resources);
+            return nicety;
+        } //Setup
+    } //ResouceInitializer
 
 } //class Nicety
