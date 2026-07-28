@@ -17,100 +17,85 @@ public class Nicety : DependencyObject {
     public static readonly DependencyProperty LineBrushProperty =
         RegisterBrushProperty(nameof(LineBrush));
     public Brush LineBrush {
-        get => (Brush)GetValue(LineBrushProperty);
         set => SetValue(LineBrushProperty, value);
     } //LineBrush
 
     public static readonly DependencyProperty BorderThicknessProperty =
         RegisterThicknessProperty(nameof(BorderThickness));
     public Thickness BorderThickness {
-        get => (Thickness)GetValue(BorderThicknessProperty);
         set => SetValue(BorderThicknessProperty, value);
     } //BorderThickness
 
     public static readonly DependencyProperty CornerRadiusProperty =
         RegisterSizeProperty(nameof(CornerRadius));
     public double CornerRadius {
-        get => (double)GetValue(CornerRadiusProperty);
         set => SetValue(CornerRadiusProperty, value);
     } //CornerRadius
 
     public static readonly DependencyProperty SeparatorThicknessProperty =
         RegisterSizeProperty(nameof(SeparatorThickness));
     public double SeparatorThickness {
-        get => (double)GetValue(SeparatorThicknessProperty);
         set => SetValue(SeparatorThicknessProperty, value);
     } //SeparatorThickness
 
     public static readonly DependencyProperty SeparatorVerticalGapProperty =
         RegisterSizeProperty(nameof(SeparatorVerticalGap));
     public double SeparatorVerticalGap {
-        get => (double)GetValue(SeparatorVerticalGapProperty);
         set => SetValue(SeparatorVerticalGapProperty, value);
-    } //SeparatorThickness
-
+    } //SeparatorVerticalGap
     public Thickness SeparatorMargin { get; set; }
 
     public static readonly DependencyProperty IconAlignmentHorizontalProperty =
         RegisterProperty(nameof(IconAlignmentHorizontal), typeof(HorizontalAlignment));
     public HorizontalAlignment IconAlignmentHorizontal {
-        get => (HorizontalAlignment)GetValue(IconAlignmentHorizontalProperty);
         set => SetValue(IconAlignmentHorizontalProperty, value);
     } //IconAlignmentHorizontal
 
     public static readonly DependencyProperty IconAlignmentVerticalProperty =
         RegisterProperty(nameof(IconAlignmentVertical), typeof(VerticalAlignment));
     public VerticalAlignment IconAlignmentVertical {
-        get => (VerticalAlignment)GetValue(IconAlignmentVerticalProperty);
         set => SetValue(IconAlignmentVerticalProperty, value);
     } //IconAlignmentVertical
 
     public static readonly DependencyProperty BackgroundNormalProperty =
         RegisterBrushProperty(nameof(BackgroundNormal));
     public Brush BackgroundNormal {
-        get => (Brush)GetValue(BackgroundNormalProperty);
         set => SetValue(BackgroundNormalProperty, value);
     } //BackgroundNormal
 
     public static readonly DependencyProperty BackgroundHighlightProperty =
         RegisterBrushProperty(nameof(BackgroundHighlight));
     public Brush BackgroundHighlight {
-        get => (Brush)GetValue(BackgroundHighlightProperty);
         set => SetValue(BackgroundHighlightProperty, value);
     } //BackgroundHighlight
 
     public static readonly DependencyProperty ForegroundIconNormalProperty =
         RegisterBrushProperty(nameof(ForegroundIconNormal));
     public Brush ForegroundIconNormal {
-        get => (Brush)GetValue(ForegroundIconNormalProperty);
         set => SetValue(ForegroundIconNormalProperty, value);
     } //ForegroundIconNormal
 
     public static readonly DependencyProperty ForegroundIconHighlightProperty =
         RegisterBrushProperty(nameof(ForegroundIconHighlight));
     public Brush ForegroundIconHighlight {
-        get => (Brush)GetValue(ForegroundIconHighlightProperty);
         set => SetValue(ForegroundIconHighlightProperty, value);
     } //ForegroundIconHighlight
 
     public static readonly DependencyProperty ForegroundIconDisabledProperty =
         RegisterBrushProperty(nameof(ForegroundIconDisabled));
     public Brush ForegroundIconDisabled {
-        get => (Brush)GetValue(ForegroundIconDisabledProperty);
         set => SetValue(ForegroundIconDisabledProperty, value);
     } //ForegroundIconDisabled
 
     public static readonly DependencyProperty ForegroundHeaderNormalProperty =
         RegisterBrushProperty(nameof(ForegroundHeaderNormal));
     public Brush ForegroundHeaderNormal {
-        get => (Brush)GetValue(ForegroundHeaderNormalProperty);
         set => SetValue(ForegroundHeaderNormalProperty, value);
     } //ForegroundHeaderNormal
 
     public static readonly DependencyProperty ForegroundHeaderHighlightProperty =
         RegisterBrushProperty(nameof(ForegroundHeaderHighlight));
     public Brush ForegroundHeaderHighlight {
-        get => (Brush)GetValue(ForegroundHeaderHighlightProperty);
         set => SetValue(ForegroundHeaderHighlightProperty, value);
     } //ForegroundHeaderHighlight
 
@@ -124,42 +109,36 @@ public class Nicety : DependencyObject {
     public static readonly DependencyProperty ForegroundGestureNormalProperty =
         RegisterBrushProperty(nameof(ForegroundGestureNormal));
     public Brush ForegroundGestureNormal {
-        get => (Brush)GetValue(ForegroundGestureNormalProperty);
         set => SetValue(ForegroundGestureNormalProperty, value);
     } //ForegroundGestureNormal
 
     public static readonly DependencyProperty ForegroundGestureHighlightProperty =
         RegisterBrushProperty(nameof(ForegroundGestureHighlight));
     public Brush ForegroundGestureHighlight {
-        get => (Brush)GetValue(ForegroundGestureHighlightProperty);
         set => SetValue(ForegroundGestureHighlightProperty, value);
     } //ForegroundGestureHighlight
 
     public static readonly DependencyProperty ForegroundGestureDisabledProperty =
         RegisterBrushProperty(nameof(ForegroundGestureDisabled));
     public Brush ForegroundGestureDisabled {
-        get => (Brush)GetValue(ForegroundGestureDisabledProperty);
         set => SetValue(ForegroundGestureDisabledProperty, value);
     } //ForegroundGestureDisabled
 
     public static readonly DependencyProperty MarginIconProperty =
         RegisterThicknessProperty(nameof(MarginIcon));
     public Thickness MarginIcon {
-        get => (Thickness)GetValue(MarginIconProperty);
         set => SetValue(MarginIconProperty, value);
     } //MarginIcon
 
     public static readonly DependencyProperty MarginHeaderProperty =
         RegisterThicknessProperty(nameof(MarginHeader));
     public Thickness MarginHeader {
-        get => (Thickness)GetValue(MarginHeaderProperty);
         set => SetValue(MarginHeaderProperty, value);
     } //MarginHeader
 
     public static readonly DependencyProperty MarginGestureProperty =
         RegisterThicknessProperty(nameof(MarginGesture));
     public Thickness MarginGesture {
-        get => (Thickness)GetValue(MarginGestureProperty);
         set => SetValue(MarginGestureProperty, value);
     } //MarginGesture
 
