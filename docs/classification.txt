@@ -1,0 +1,32 @@
+1 Icon area: #id-group-icon
+MarginIcon 
+ForegroundIconNormal
+ForegroundIconHighlight
+ForegroundIconDisabled
+IconAlignmentHorizontal
+IconAlignmentVertical
+
+2 Header area: #id-group-header
+MarginHeader 
+ForegroundHeaderNormal
+ForegroundHeaderHighlight
+ForegroundHeaderDisabled
+
+3 Gesture area: #id-group-gesture
+MarginGesture 
+ForegroundGestureNormal
+ForegroundGestureHighlight
+ForegroundGestureDisabled
+
+MenuItem:
+4 BackgroundNormal, #id-background-normal
+5 BackgroundHighlight, #id-background-highlight
+
+6 Separator:
+SeparatorThickness, #id-separator-thickness
+SeparatorVerticalGap, #id-separator-vertical-gap
+
+Other:
+7 LineBrush, #id-line-brush
+8 CornerRadius, #id-corner-radius
+9 BorderThickness, #id-border-thickness
