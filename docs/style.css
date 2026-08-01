@@ -10,3 +10,4 @@
         h1 { font-size: 200%; }
         h2, .api-section { font-weight: bold; font-size: 120%; } 
         code { background-color: beige; font-family: monospace; font-size:140% }
+        h1, h2 { margin-top: 0.8em; margin-bottom: 0.2em; }
