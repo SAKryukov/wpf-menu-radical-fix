@@ -99,6 +99,28 @@ Line Properties{.api-section}
 
 `BorderThickness`{id=id-border-thickness}{.api}: defines the thickness for the `ContextMenu` border.
 
+# Interesting Implementation Details
+
+## Uniform Property Set
+
+One reason for the [`Nicely`](https://github.com/SAKryukov/wpf-menu-radical-fix/blob/main/code/Agnostic/UI.Controls/Menu/Nicety.cs) implementation is the lack of *multiple inheritance*. Two menu classes, `SA.Agnostic.UI.Controls.Menu` and `SA.Agnostic.UI.Controls.ContextMenu`, require the identical set of properties exposed to the developer using these classes. Some of those properties are used for the two classes in different ways.
+
+To provide proper reuse, these menu classes add a `Nicely` property of the same class. Its implementation is based on the `Resources` of both menu classes. The set of resources is also reused in both classes through *composition*.
+
+## XAML Data to Code
+
+The styles and control templates used by both menu classes are defined in the [same XAML](https://github.com/SAKryukov/wpf-menu-radical-fix/blob/main/code/Agnostic/UI.Controls/Menu/MenuResourceHost.xaml).
+
+To reuse resources between two menu classes, they are implemented in a special class, [`ResourceHost`](https://github.com/SAKryukov/wpf-menu-radical-fix/blob/main/code/Agnostic/Ui/XamlToData/Markup/ResourceHost.cs). The [`Nicely`](https://github.com/SAKryukov/wpf-menu-radical-fix/blob/main/code/Agnostic/UI.Controls/Menu/Nicety.cs) class merges the resources from `ResourceHost` into `Resources.MergedDictionaries` of each menu class.
+
+Also, the [same XAML](https://github.com/SAKryukov/wpf-menu-radical-fix/blob/main/code/Agnostic/UI.Controls/Menu/MenuResourceHost.xaml) is used to define the default set for [`Nicely`](https://github.com/SAKryukov/wpf-menu-radical-fix/blob/main/code/Agnostic/UI.Controls/Menu/Nicety.cs) *dependency properties*.
+
+The class [`ResourceHost`](https://github.com/SAKryukov/wpf-menu-radical-fix/blob/main/code/Agnostic/Ui/XamlToData/Markup/ResourceHost.cs) is derived from [`System.Windows.Freezable`](https://learn.microsoft.com/en-us/dotnet/api/system.windows.freezable). This is the minimal class suitable for storing and exposing resources. In contrast to the direct use of XAML resource files, it provides a technique of accessing resources without any *magic strings* usually used as dictionary keys. It allows for storing and retrieving arbitrary structured data classes in XAML.
+
+See also:
+* [XAML Data to Code](https://sakryukov.github.io/publications/2023-09-23.XAML-Data-to-Code.html)
+* [XAML Data to Code, Advanced](https://sakryukov.github.io/publications/2025-01-09.XAML-Data-to-Code-Advanced.html)
+
 # Interactive Properties Cheat Sheet
 
 Click on property names for detailed information{.api}:
