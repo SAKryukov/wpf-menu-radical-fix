@@ -1,6 +1,5 @@
 <Window x:Class="SA.WindowMain"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:system="clr-namespace:System;assembly=netstandard"
         xmlns:controls="clr-namespace:SA.Agnostic.UI.Controls;assembly=Agnostic.UI.Controls"
         WindowStartupLocation="CenterScreen"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
