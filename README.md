@@ -1,5 +1,7 @@
 # WPF Menu Radical Fix
 
+![Menu](https://sakryukov.github.io/wpf-menu-radical-fix/result.webp)
+
 Replaces WPF `System.Windows.Controls.Menu` and `System.Windows.Controls.ContextMenu` and fixes long-standing issues:
 
 * Icons are no longer clipped, no matter what their sizes are.
@@ -9,6 +11,7 @@ Replaces WPF `System.Windows.Controls.Menu` and `System.Windows.Controls.Context
 * Separators are controllable. Now they span the entire width of a vertical menu or a submenu by default.
 * All essential stylistic properties on the menu inner content are exposed, so there is no need to write menu templates.
 
+[Detailed help](https://sakryukov.github.io/wpf-menu-radical-fix/help.html)
+
 Usage demo: [Pre-built code sample](https://github.com/SAKryukov/wpf-menu-radical-fix/releases/download/latest-build/Sanitized-menu.full-build.zip)
 <br><small>(All prebuilt executables are built on the GitHub server and are safe.)</small>
-
