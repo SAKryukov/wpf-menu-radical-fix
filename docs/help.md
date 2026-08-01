@@ -12,7 +12,7 @@ The new WPF menu controls replace WPF `System.Windows.Controls.Menu` and `System
 
 Well, because the default  WPF menu design is a *spectacular failure*:
 * The layout will break if one uses non-default menu sizes or non-default fonts. Moreover, the icons can be clipped.
-* * The menus look ugly in several ways. Most complaints come about the fixed size and obsolete style of the gutter in the menu area.
+* The menus look ugly in several ways. Most complaints come about the fixed size and obsolete style of the gutter in the menu area.
 * At the same time, menus are notoriously hard to customize.
 * Menu styles and templates are enormously bloated and over-complicated.
 
@@ -40,7 +40,7 @@ To customize the inner content stylistic properties of the menus, add a new `Nic
 
 `Nicety` is the *dependency property* defined for both `Menu` and `ContextMenu` used to [customize](#heading-customization) *inner* menu *stylistic elements*.
 
-Icon Properties{id=id-group-icon}{.api-section}
+Menu Item Icon Properties{id=id-group-icon}{.api-section}
 
 `MarginIcon`{.api}: margins around a menu item icon.
 
@@ -57,9 +57,9 @@ Icon Properties{id=id-group-icon}{.api-section}
 ***Notes***:
 
 * Foreground properties come into play when font glyphs are used as an icon.
-* Icon alignment can make a difference if icons of the same `ContextMenu` or submenu have different sizes.
+* Icon alignment can make a difference if icons of the same a submenu or `ContextMenu` have different sizes.
 
-Header area{id=id-group-header}{.api-section}
+Menu Item Header Properties{id=id-group-header}{.api-section}
 
 `MarginHeader`{.api}: margins around a menu item header text.
 
@@ -69,7 +69,7 @@ Header area{id=id-group-header}{.api-section}
 
 `ForegroundHeaderDisabled`{.api}: disabled menu item header foreground.
 
-Gesture area{id=id-group-gesture}{.api-section}
+Menu Item Gesture Indicator Properties{id=id-group-gesture}{.api-section}
 
 `MarginGesture`{.api}: margins around a menu item gesture indicator text.
 
@@ -101,11 +101,11 @@ this is a `double` property used as the `Top` and `Bottom` properties for the `S
 
 Line Properties{.api-section}
 
-`LineBrush`{id=id-line-brush}{.api}: defines the same brush for both `Separator` and `ContextMenu` border.
+`LineBrush`{id=id-line-brush}{.api}: defines the same brush for the `Separator` and submenu or `ContextMenu` border.
 
-`CornerRadius`{id=id-corner-radius}{.api}: defines the same corner radius for both menu item and `ContextMenu` border.
+`CornerRadius`{id=id-corner-radius}{.api}: defines the same corner radius for the menu item and submenu or `ContextMenu` border.
 
-`BorderThickness`{id=id-border-thickness}{.api}: defines the thickness for the `ContextMenu` border.
+`BorderThickness`{id=id-border-thickness}{.api}: defines the thickness for the submenu or `ContextMenu` border.
 
 # Interesting Implementation Details
 
