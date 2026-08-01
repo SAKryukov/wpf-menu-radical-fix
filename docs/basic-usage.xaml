@@ -23,7 +23,7 @@
             <span class="xmltag all highlighter"><span class="xmltag all highlighter">&lt;</span><span class="xmltag special highlighter">/</span><span class="xmltag name highlighter">MenuItem</span></span><span class="xmltag close highlighter">&gt;</span>
             <span class="comment block highlighter">&lt;!-- ... --&gt;</span>
         <span class="xmltag all highlighter"><span class="xmltag all highlighter">&lt;</span><span class="xmltag special highlighter">/</span><span class="xmltag name highlighter">controls:Menu</span></span><span class="xmltag close highlighter">&gt;</span>
+        <span class="comment block highlighter">&lt;!-- ... --&gt;</span>
     <span class="xmltag all highlighter"><span class="xmltag all highlighter">&lt;</span><span class="xmltag special highlighter">/</span><span class="xmltag name highlighter">Grid</span></span><span class="xmltag close highlighter">&gt;</span>
-    <span class="comment block highlighter">&lt;!-- ... --&gt;</span>
 
 <span class="xmltag all highlighter"><span class="xmltag all highlighter">&lt;</span><span class="xmltag special highlighter">/</span><span class="xmltag name highlighter">Window</span></span><span class="xmltag close highlighter">&gt;</span>
