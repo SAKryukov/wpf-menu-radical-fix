@@ -22,11 +22,19 @@ The menu controls `SA.Agnostic.UI.Controls.Menu` and `SA.Agnostic.UI.Controls.Co
 
 ## Basic Usage
 
-&lt;Under development...&gt;
+Reference the project [`Agnostic.UI.Controls.csproj`](https://github.com/SAKryukov/wpf-menu-radical-fix/blob/main/code/Agnostic/UI.Controls/Agnostic.UI.Controls.csproj) or the assembly `Agnostic.UI.Controls` and use the menu classes in XAML:
+
+~~~xml
+@include(basic-usage.xaml)
+~~~     
 
 ## Customization
 
-&lt;Under development...&gt;
+To customize the inner content stylistic properties of the menus, add a new `Nicety` instance. It will inherit the default set of *dependency properties*. Override some of them to modify styling. Use the [interactive properties cheat sheet](#heading-interactive-properties-cheat-sheet) for reference.
+
+~~~xml
+@include(advanced-usage.xaml)
+~~~
 
 # Nicety Properties
 

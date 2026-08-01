@@ -1,3 +1,4 @@
+        @import url(highlighter.css);
         svg { width: 70em; margin-left: 0; }
         .title { font-size: 260%; border-bottom: thin solid black; font-weight: bold; }
         * { font-family: sans-serif }
@@ -9,5 +10,7 @@
         .api { margin: 0; }
         h1 { font-size: 200%; }
         h2, .api-section { font-weight: bold; font-size: 120%; } 
-        code { background-color: beige; font-family: monospace; font-size:140% }
+        pre { padding: 0.2em; padding-left: 0.8em; padding-right: 0; }
+        code, pre { font-family: monospace; background-color: hsl(38, 100%, 96%, 100%) }
+        code {font-size:140%; }
         h1, h2 { margin-top: 0.8em; margin-bottom: 0.2em; }
