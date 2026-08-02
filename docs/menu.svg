@@ -1,21 +1,14 @@
 <svg version="1.1" viewBox="0 0 2291.6 822.03" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
     <style><![CDATA[
-.line {
-  fill:none;
-  stroke:#008000;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-  stroke-opacity:1;
-  stroke-width:4;
-}
-.property {
-  fill:#008000;
-}
-.property-rect {
-  stroke:#008000;
-  fill:none;
-}
+a > rect { pointer-events: all; }
+path { pointer-events: none; }
+.line { fill:none; stroke:#008000; stroke-linecap:round; stroke-linejoin:round; stroke-opacity:1; stroke-width:4; }
+.property { fill:#008000; }
+.property-rect { stroke:#008000; fill:none; }
+.property-rect { fill: transparent; stroke: #008000; }
+.property-rect:hover { fill: hsl(203, 92%, 94%, 100%) }
+.property-rect:active { fill: hsl(203, 92%, 64%, 100%) }
 ]]></style>
   </defs>
   <g transform="translate(185.2 44.974)">

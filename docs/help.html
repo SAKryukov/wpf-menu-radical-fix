@@ -8,11 +8,6 @@
         svg { width: 70em; margin-left: 0; }
         .title { font-size: 260%; border-bottom: thin solid black; font-weight: bold; }
         * { font-family: sans-serif }
-        svg a > rect { pointer-events: all; }
-        svg path { pointer-events: none; }
-        .property-rect { fill: transparent; stroke: #008000; }
-        .property-rect:hover { fill: hsl(203, 92%, 94%, 100%) }
-        .property-rect:active { fill: hsl(203, 92%, 64%, 100%) }
         .api { margin: 0; }
         h1 { font-size: 200%; }
         h2, .api-section { font-weight: bold; font-size: 120%; } 
@@ -24,7 +19,8 @@
 </head>
 <body>
 
-<p class="title">Radical Fix for WPF Menus </p><p><img src="result.webp" alt="Menu" /></p><h1>Contents</h1>
+<span id="markdown-mermaid" aria-hidden="true" data-config="{&quot;darkModeTheme&quot;:&quot;dark&quot;,&quot;lightModeTheme&quot;:&quot;default&quot;,&quot;maxTextSize&quot;:50000,&quot;clickDrag&quot;:&quot;alt&quot;,&quot;showControls&quot;:&quot;onHoverOrFocus&quot;,&quot;resizable&quot;:true,&quot;maxHeight&quot;:&quot;&quot;}"></span>
+				<p class="title">Radical Fix for WPF Menus </p><p><img src="result.webp" alt="Menu" data-src="result.webp" /></p><h1>Contents</h1>
 <p class="toc">
 <a style="margin-left: 0em;" href="#heading-why-new-menus3f">Why New Menus?</a><br/>
 <a style="margin-left: 0em;" href="#heading-usage">Usage</a><br/>
@@ -36,7 +32,7 @@
 <a style="margin-left: 3em;" href="#heading-xaml-data-to-code">XAML Data to Code</a><br/>
 <a style="margin-left: 0em;" href="#heading-interactive-properties-cheat-sheet">Interactive Properties Cheat Sheet</a><br/>
 </p><h1 id="heading-why-new-menus3f">Why New Menus?</h1>
-<p>The new WPF menu controls replace WPF <code>System.Windows.Controls.Menu</code> and <code>System.Windows.Controls.ContextMenu</code>. Why is this required?</p><p>Well, because the default  WPF menu design is a <em>spectacular failure</em>:</p><ul>
+<p>The new WPF menu controls replace WPF <code>System.Windows.Controls.Menu</code> and <code>System.Windows.Controls.ContextMenu</code>. Why is this required?</p><p>Well, because the default  WPF menu design is a <em>spectacular failure</em>:</p><ul data-line="13" class="code-line" dir="auto">
 <li>The layout will break if one uses non-default menu sizes or non-default fonts. Moreover, the icons can be clipped.</li>
 <li>The menus look ugly in several ways. Most complaints come about the fixed size and obsolete style of the gutter in the menu area.</li>
 <li>At the same time, menus are notoriously hard to customize.</li>
@@ -103,7 +99,7 @@
 
 <span class="xmltag all highlighter"><span class="xmltag all highlighter">&lt;</span><span class="xmltag special highlighter">/</span><span class="xmltag name highlighter">Window</span></span><span class="xmltag close highlighter">&gt;</span>
 </pre><h1 id="heading-nicety-properties">Nicety Properties</h1>
-<p><code>Nicety</code> is the <em>dependency property</em> defined for both <code>Menu</code> and <code>ContextMenu</code> used to <a href="#heading-customization">customize</a> <em>inner</em> menu <em>stylistic elements</em>.</p><p class="api-section" id="id-group-icon">Menu Item Icon Properties</p><p class="api"><code>MarginIcon</code>: margins around a menu item icon.</p><p class="api"><code>ForegroundIconNormal</code>: menu item icon foreground.</p><p class="api"><code>ForegroundIconHighlight</code>: highlighted menu item icon foreground.</p><p class="api"><code>ForegroundIconDisabled</code>: disabled menu item icon foreground.</p><p class="api"><code>IconAlignmentHorizontal</code>: menu item icon alignment of the type <code>System.Windows.HorizontalAlignment</code>.</p><p class="api"><code>IconAlignmentVertical</code>: menu item icon alignment of the type <code>System.Windows.VerticalAlignment</code>.</p><p><em><strong>Notes</strong></em>:</p><ul>
+<p><code>Nicety</code> is the <em>dependency property</em> defined for both <code>Menu</code> and <code>ContextMenu</code> used to <a href="#heading-customization">customize</a> <em>inner</em> menu <em>stylistic elements</em>.</p><p class="api-section" id="id-group-icon">Menu Item Icon Properties</p><p class="api"><code>MarginIcon</code>: margins around a menu item icon.</p><p class="api"><code>ForegroundIconNormal</code>: menu item icon foreground.</p><p class="api"><code>ForegroundIconHighlight</code>: highlighted menu item icon foreground.</p><p class="api"><code>ForegroundIconDisabled</code>: disabled menu item icon foreground.</p><p class="api"><code>IconAlignmentHorizontal</code>: menu item icon alignment of the type <code>System.Windows.HorizontalAlignment</code>.</p><p class="api"><code>IconAlignmentVertical</code>: menu item icon alignment of the type <code>System.Windows.VerticalAlignment</code>.</p><p><em><strong>Notes</strong></em>:</p><ul data-line="113" class="code-line" dir="auto">
 <li>Foreground properties come into play when font glyphs are used as an icon.</li>
 <li>Icon alignment can make a difference if icons of the same a submenu or <code>ContextMenu</code> have different sizes.</li>
 </ul>
@@ -113,29 +109,23 @@
 this is a <code>double</code> property used as the <code>Top</code> and <code>Bottom</code> properties for the <code>Separator</code> margin.</p><p class="api-section">Line Properties</p><p class="api" id="id-line-brush"><code>LineBrush</code>: defines the same brush for the <code>Separator</code> and submenu or <code>ContextMenu</code> border.</p><p class="api" id="id-corner-radius"><code>CornerRadius</code>: defines the same corner radius for the menu item and submenu or <code>ContextMenu</code> border.</p><p class="api" id="id-border-thickness"><code>BorderThickness</code>: defines the thickness for the submenu or <code>ContextMenu</code> border.</p><h1 id="heading-interesting-implementation-details">Interesting Implementation Details</h1>
 <h2 id="heading-uniform-property-set">Uniform Property Set</h2>
 <p>One reason for the <a href="https://github.com/SAKryukov/wpf-menu-radical-fix/blob/main/code/Agnostic/UI.Controls/Menu/Nicety.cs"><code>Nicely</code></a> implementation is the lack of <em>multiple inheritance</em>. Two menu classes, <code>SA.Agnostic.UI.Controls.Menu</code> and <code>SA.Agnostic.UI.Controls.ContextMenu</code>, require the identical set of properties exposed to the developer using these classes. Some of those properties are used for the two classes in different ways.</p><p>To provide proper reuse, these menu classes add a <code>Nicely</code> property of the same class. Its implementation is based on the <code>Resources</code> of both menu classes. The set of resources is also reused in both classes through <em>composition</em>.</p><h2 id="heading-xaml-data-to-code">XAML Data to Code</h2>
-<p>The styles and control templates used by both menu classes are defined in the <a href="https://github.com/SAKryukov/wpf-menu-radical-fix/blob/main/code/Agnostic/UI.Controls/Menu/MenuResourceHost.xaml">same XAML</a>.</p><p>To reuse resources between two menu classes, they are implemented in a special class, <a href="https://github.com/SAKryukov/wpf-menu-radical-fix/blob/main/code/Agnostic/Ui/XamlToData/Markup/ResourceHost.cs"><code>ResourceHost</code></a>. The <a href="https://github.com/SAKryukov/wpf-menu-radical-fix/blob/main/code/Agnostic/UI.Controls/Menu/Nicety.cs"><code>Nicely</code></a> class merges the resources from <code>ResourceHost</code> into <code>Resources.MergedDictionaries</code> of each menu class.</p><p>Also, the <a href="https://github.com/SAKryukov/wpf-menu-radical-fix/blob/main/code/Agnostic/UI.Controls/Menu/MenuResourceHost.xaml">same XAML</a> is used to define the default set for <a href="https://github.com/SAKryukov/wpf-menu-radical-fix/blob/main/code/Agnostic/UI.Controls/Menu/Nicety.cs"><code>Nicely</code></a> <em>dependency properties</em>.</p><p>The class <a href="https://github.com/SAKryukov/wpf-menu-radical-fix/blob/main/code/Agnostic/Ui/XamlToData/Markup/ResourceHost.cs"><code>ResourceHost</code></a> is derived from <a href="https://learn.microsoft.com/en-us/dotnet/api/system.windows.freezable"><code>System.Windows.Freezable</code></a>. This is the minimal class suitable for storing and exposing resources. In contrast to the direct use of XAML resource files, it provides a technique of accessing resources without any <em>magic strings</em> usually used as dictionary keys. It allows for storing and retrieving arbitrary structured data classes in XAML.</p><p>See also:</p><ul>
+<p>The styles and control templates used by both menu classes are defined in the <a href="https://github.com/SAKryukov/wpf-menu-radical-fix/blob/main/code/Agnostic/UI.Controls/Menu/MenuResourceHost.xaml">same XAML</a>.</p><p>To reuse resources between two menu classes, they are implemented in a special class, <a href="https://github.com/SAKryukov/wpf-menu-radical-fix/blob/main/code/Agnostic/Ui/XamlToData/Markup/ResourceHost.cs"><code>ResourceHost</code></a>. The <a href="https://github.com/SAKryukov/wpf-menu-radical-fix/blob/main/code/Agnostic/UI.Controls/Menu/Nicety.cs"><code>Nicely</code></a> class merges the resources from <code>ResourceHost</code> into <code>Resources.MergedDictionaries</code> of each menu class.</p><p>Also, the <a href="https://github.com/SAKryukov/wpf-menu-radical-fix/blob/main/code/Agnostic/UI.Controls/Menu/MenuResourceHost.xaml">same XAML</a> is used to define the default set for <a href="https://github.com/SAKryukov/wpf-menu-radical-fix/blob/main/code/Agnostic/UI.Controls/Menu/Nicety.cs"><code>Nicely</code></a> <em>dependency properties</em>.</p><p>The class <a href="https://github.com/SAKryukov/wpf-menu-radical-fix/blob/main/code/Agnostic/Ui/XamlToData/Markup/ResourceHost.cs"><code>ResourceHost</code></a> is derived from <a href="https://learn.microsoft.com/en-us/dotnet/api/system.windows.freezable"><code>System.Windows.Freezable</code></a>. This is the minimal class suitable for storing and exposing resources. In contrast to the direct use of XAML resource files, it provides a technique of accessing resources without any <em>magic strings</em> usually used as dictionary keys. It allows for storing and retrieving arbitrary structured data classes in XAML.</p><p>See also:</p><ul data-line="183" class="code-line" dir="auto">
 <li><a href="https://sakryukov.github.io/publications/2023-09-23.XAML-Data-to-Code.html">XAML Data to Code</a></li>
 <li><a href="https://sakryukov.github.io/publications/2025-01-09.XAML-Data-to-Code-Advanced.html">XAML Data to Code, Advanced</a></li>
 </ul>
 <h1 id="heading-interactive-properties-cheat-sheet">Interactive Properties Cheat Sheet</h1>
-<p class="api">Click on property names for detailed information:</p><svg version="1.1" viewBox="0 0 2291.6 822.03" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p class="api">Click on property names for detailed information:</p><div  data-line="190" class="code-line" dir="auto" ></div>
+<svg version="1.1" viewBox="0 0 2291.6 822.03" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
     <style><![CDATA[
-.line {
-  fill:none;
-  stroke:#008000;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-  stroke-opacity:1;
-  stroke-width:4;
-}
-.property {
-  fill:#008000;
-}
-.property-rect {
-  stroke:#008000;
-  fill:none;
-}
+a > rect { pointer-events: all; }
+path { pointer-events: none; }
+.line { fill:none; stroke:#008000; stroke-linecap:round; stroke-linejoin:round; stroke-opacity:1; stroke-width:4; }
+.property { fill:#008000; }
+.property-rect { stroke:#008000; fill:none; }
+.property-rect { fill: transparent; stroke: #008000; }
+.property-rect:hover { fill: hsl(203, 92%, 94%, 100%) }
+.property-rect:active { fill: hsl(203, 92%, 64%, 100%) }
 ]]></style>
   </defs>
   <g transform="translate(185.2 44.974)">

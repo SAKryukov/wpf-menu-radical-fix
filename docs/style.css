@@ -2,11 +2,6 @@
         svg { width: 70em; margin-left: 0; }
         .title { font-size: 260%; border-bottom: thin solid black; font-weight: bold; }
         * { font-family: sans-serif }
-        svg a > rect { pointer-events: all; }
-        svg path { pointer-events: none; }
-        .property-rect { fill: transparent; stroke: #008000; }
-        .property-rect:hover { fill: hsl(203, 92%, 94%, 100%) }
-        .property-rect:active { fill: hsl(203, 92%, 64%, 100%) }
         .api { margin: 0; }
         h1 { font-size: 200%; }
         h2, .api-section { font-weight: bold; font-size: 120%; } 
