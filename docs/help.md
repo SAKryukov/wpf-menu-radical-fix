@@ -85,11 +85,7 @@ Background Properties{.api-section}
 
 `BackgroundHighlight`{id=id-background-highlight}{.api}: highlighted menu item background.
 
-***Note***: Menu property `Background` is not the same as [`BackgroundNormal`](#id-background-normal).
-`ContextMenu` is a special case: it is recommended to use the same brush for `Background` and `BackgroundNormal` when non-zero [`SeparatorVerticalGap`](#id-separator-vertical-gap) or non-zero
-[`CornerRadius`](#id-corner-radius) are used because the menu background shows through the non-rendered areas.
-
-Foreground properties come into play when font glyphs are used as an icon.
+***Note:*** [`BackgroundNormal`](#id-background-normal) and the menu property `Background` can define different brushes. However, this is not recommended for most cases. Even though the menu items can cover the entire area of a `ContextMenu`, this is not the case if [`SeparatorVerticalGap`](#id-separator-vertical-gap) is non-zero or [`CornerRadius`](#id-corner-radius) is non-zero, because the menu background shows through the non-rendered areas.
 
 Separator Properties{.api-section}
 
