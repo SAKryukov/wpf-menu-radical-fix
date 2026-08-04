@@ -4,20 +4,28 @@
         WindowStartupLocation="CenterScreen"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <Window.Resources>
+        <Brush x:Key="contextMenu">Ivory</Brush>
+        <Brush x:Key="menu">SeaShell</Brush>
+    </Window.Resources>
+
     <Window.ContextMenu>
-        <controls:ContextMenu FontSize="20" Background="LightYellow">
+        <controls:ContextMenu FontSize="24" Background="{StaticResource contextMenu}">
             <controls:ContextMenu.Nicety>
                 <controls:Nicety
-                    BackgroundNormal="LightYellow"
-                    BackgroundHighlight="LightGreen"/>
+                    ForegroundIconHighlight="{StaticResource contextMenu}"
+                    ForegroundHeaderHighlight="White"
+                    ForegroundGestureHighlight="White"
+                    BackgroundHighlight="Purple"
+                    BackgroundNormal="{StaticResource contextMenu}"/>
             </controls:ContextMenu.Nicety>
             <MenuItem Header="Open..." Icon="⚽"/>
             <MenuItem Header="Save" Command="ApplicationCommands.Save" Icon="🚑"/>
             <MenuItem Header="Save As..."/>
             <Separator/>
-            <MenuItem Header="Help">
-                <MenuItem Header="1" Icon="🎲"/>
-                <MenuItem Header="2"/>
+            <MenuItem Header="Help..." Icon="💡">
+                <MenuItem Header="About" Icon="🎲"/>
+                <MenuItem Header="References"/>
             </MenuItem>
         </controls:ContextMenu>
     </Window.ContextMenu>
@@ -28,9 +36,15 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <controls:Menu FontSize="32"  Background="#FFFBFA" BorderThickness="0" BorderBrush="Gray">
+        <controls:Menu FontSize="32"  Background="{StaticResource menu}" BorderThickness="0" BorderBrush="Gray">
             <controls:Menu.Nicety>
                 <controls:Nicety
+                    CornerRadius="5"
+                    ForegroundIconHighlight="White"
+                    ForegroundHeaderHighlight="White"
+                    ForegroundGestureHighlight="White"
+                    BackgroundNormal="{StaticResource menu}"
+                    BackgroundHighlight="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"
                 />
             </controls:Menu.Nicety>
             <Menu.ItemsPanel>
@@ -39,7 +53,7 @@
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
             <MenuItem Header="_File">
-                <MenuItem Header="Open... " Icon="🕮"/>
+                <MenuItem Header="Open... " Icon="🕮" />
                 <MenuItem Header="Save" Command="ApplicationCommands.Save" Icon="💰"/>
                 <MenuItem Header="Save As..." />
                 <Separator/>
