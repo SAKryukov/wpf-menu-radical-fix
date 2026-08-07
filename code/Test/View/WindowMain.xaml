@@ -26,7 +26,6 @@
                     BackgroundHighlight="Purple"
                     BackgroundNormal="{StaticResource contextMenu}"/>
             </controls:ContextMenu.Nicety>
-            <controls:RadioMenuItem Header="Test Radio" Icon="⚽" StaysOpenOnClick="true" IsCheckable="false" />
             <MenuItem Header="Open..." Icon="⚽"/>
             <MenuItem Header="Save" Command="ApplicationCommands.Save" Icon="💰"/>
             <MenuItem Header="Save As..."/>
