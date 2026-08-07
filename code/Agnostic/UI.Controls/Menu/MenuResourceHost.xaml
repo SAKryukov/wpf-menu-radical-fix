@@ -63,9 +63,10 @@
                             CornerRadius="{Binding Nicety.CornerRadius, RelativeSource={RelativeSource AncestorType={x:Type MenuBase}}}">
                             <Grid Margin="{TemplateBinding Padding}">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" SharedSizeGroup="MenuIconGroup"/>
-                                    <ColumnDefinition Width="Auto" SharedSizeGroup="MenuHeaderGroup"/>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="menuIconGroup"/>
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="menuHeaderGroup"/>
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="menuGestureGroup"/>
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="subMenuArrowGroup"/>
                                 </Grid.ColumnDefinitions>
                                 <Popup x:Name="PART_Popup"
                                     IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}"
@@ -83,7 +84,6 @@
                                     </Border>
                                 </Popup>                        
                                 <ContentControl
-                                    Grid.Column="0"
                                     x:Name="iconContainer"
                                     Content="{TemplateBinding Icon}"
                                     HorizontalAlignment="{Binding Nicety.IconAlignmentHorizontal, RelativeSource={RelativeSource AncestorType={x:Type MenuBase}}}"
@@ -121,6 +121,12 @@
                                     Text="{TemplateBinding InputGestureText}"
                                     Foreground="{Binding Nicety.ForegroundGestureNormal, RelativeSource={RelativeSource AncestorType={x:Type MenuBase}}}"
                                     Margin="{Binding Nicety.MarginGesture, RelativeSource={RelativeSource AncestorType={x:Type MenuBase}}}"/>
+                                <TextBlock
+                                    Grid.Column="3"
+                                    x:Name="subMenuArrow"
+                                    Visibility="Collapsed"
+                                    VerticalAlignment="Center"
+                                    Text="🞂"/>
                             </Grid>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -167,6 +173,13 @@
                                     <Condition Property="Icon" Value="{x:Null}" />
                                 </MultiTrigger.Conditions>
                                 <Setter TargetName="iconContainer" Property="Visibility" Value="Collapsed" />
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="HasItems" Value="True"/>
+                                    <Condition Property="Role" Value="SubmenuHeader"/>
+                                </MultiTrigger.Conditions>
+                                <Setter TargetName="subMenuArrow" Property="Visibility" Value="Visible"/>
                             </MultiTrigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

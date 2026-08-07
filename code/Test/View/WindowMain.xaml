@@ -51,6 +51,10 @@
         <controls:Menu FontSize="28" Grid.ColumnSpan="2" Background="{StaticResource menu}" BorderThickness="0" BorderBrush="Gray">
             <controls:Menu.Nicety>
                 <controls:Nicety
+                    ForegroundIconHighlight="White"
+                    ForegroundHeaderHighlight="White"
+                    ForegroundGestureHighlight="White"
+                    BackgroundHighlight="{x:Static SystemColors.HighlightBrush}"
                     BackgroundNormal="{StaticResource menu}"
                     CornerRadius="5"/>
             </controls:Menu.Nicety>
