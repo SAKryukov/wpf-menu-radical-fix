@@ -1,16 +1,23 @@
 <Window x:Class="SA.WindowMain"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:SA.Agnostic.UI.Controls;assembly=Agnostic.UI.Controls"
-        WindowStartupLocation="CenterScreen"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
+        <Thickness x:Key="marginButton">0 0 0 4</Thickness>
         <Brush x:Key="contextMenu">Ivory</Brush>
         <Brush x:Key="menu">SeaShell</Brush>
+        <Style TargetType="{x:Type controls:RadioButton}">
+            <Setter Property="Margin" Value="{StaticResource marginButton}"/>
+        </Style>
+        <Style TargetType="{x:Type controls:CheckBox}">
+            <Setter Property="Margin" Value="{StaticResource marginButton}"/>
+        </Style>
     </Window.Resources>
 
     <Window.ContextMenu>
-        <controls:ContextMenu FontSize="24" Background="{StaticResource contextMenu}">
+        <controls:ContextMenu FontSize="20" Background="{StaticResource contextMenu}">
             <controls:ContextMenu.Nicety>
                 <controls:Nicety
                     ForegroundIconHighlight="{StaticResource contextMenu}"
@@ -19,13 +26,14 @@
                     BackgroundHighlight="Purple"
                     BackgroundNormal="{StaticResource contextMenu}"/>
             </controls:ContextMenu.Nicety>
+            <controls:RadioMenuItem Header="Test Radio" Icon="⚽" StaysOpenOnClick="true" IsCheckable="false" />
             <MenuItem Header="Open..." Icon="⚽"/>
-            <MenuItem Header="Save" Command="ApplicationCommands.Save" Icon="🚑"/>
+            <MenuItem Header="Save" Command="ApplicationCommands.Save" Icon="💰"/>
             <MenuItem Header="Save As..."/>
             <Separator/>
             <MenuItem Header="Help..." Icon="💡">
-                <MenuItem Header="About" Icon="🎲"/>
-                <MenuItem Header="References"/>
+                <MenuItem Header="About" Command="ApplicationCommands.Help" Icon="🎲"/>
+                <MenuItem Header="Documentation" Command="ApplicationCommands.PrintPreview"/>
             </MenuItem>
         </controls:ContextMenu>
     </Window.ContextMenu>
@@ -36,16 +44,15 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <controls:Menu FontSize="32"  Background="{StaticResource menu}" BorderThickness="0" BorderBrush="Gray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <controls:Menu FontSize="28" Grid.ColumnSpan="2" Background="{StaticResource menu}" BorderThickness="0" BorderBrush="Gray">
             <controls:Menu.Nicety>
                 <controls:Nicety
-                    CornerRadius="5"
-                    ForegroundIconHighlight="White"
-                    ForegroundHeaderHighlight="White"
-                    ForegroundGestureHighlight="White"
                     BackgroundNormal="{StaticResource menu}"
-                    BackgroundHighlight="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"
-                />
+                    CornerRadius="5"/>
             </controls:Menu.Nicety>
             <Menu.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -55,26 +62,69 @@
             <MenuItem Header="_File">
                 <MenuItem Header="Open... " Icon="🕮" />
                 <MenuItem Header="Save" Command="ApplicationCommands.Save" Icon="💰"/>
-                <MenuItem Header="Save As..." />
+                <MenuItem Header="Save As..." StaysOpenOnClick="true"/>
                 <Separator/>
                 <MenuItem Header="Help..." Icon="💡"/>
             </MenuItem>
             <MenuItem Header="_View">
-                <MenuItem Header="Appearance"/>
-                <MenuItem Header="Output"/>
+                <MenuItem Header="Toolbar" IsCheckable="true" StaysOpenOnClick="true"/>
+                <MenuItem Header="Status Bas" IsCheckable="true" IsChecked="true" StaysOpenOnClick="true"/>
+                <MenuItem Header="Output" IsCheckable="true" StaysOpenOnClick="true"/>
+                <Separator/>
+                <MenuItem Header="Word Wrap" IsCheckable="true" IsChecked="true" StaysOpenOnClick="true"/>
+                <Separator/>
+                <MenuItem Header="Full Screen" IsCheckable="true" StaysOpenOnClick="true"/>
+            </MenuItem>
+            <MenuItem Header="_Options">
+                <MenuItem IsCheckable="true" Header="Force" StaysOpenOnClick="true"/>
+                <MenuItem IsCheckable="true" Header="Debug" StaysOpenOnClick="true"/>
+                <Separator/>
+                <MenuItem Header="Verbosity..." Icon="💬" StaysOpenOnClick="true">
+                    <controls:RadioMenuItem Header="Quiet" IsChecked="true" StaysOpenOnClick="true" RadioMenuItemGroup="aaa"/>
+                    <controls:RadioMenuItem Header="Minimal" StaysOpenOnClick="true" RadioMenuItemGroup="aaa"/>
+                    <controls:RadioMenuItem Header="Normal" StaysOpenOnClick="true" RadioMenuItemGroup="aaa"/>
+                    <controls:RadioMenuItem Header="Detailed" StaysOpenOnClick="true" RadioMenuItemGroup="aaa"/>
+                    <Separator/>
+                    <controls:RadioMenuItem Header="Names" StaysOpenOnClick="true" IsChecked="true"/>
+                    <controls:RadioMenuItem Header="Types" StaysOpenOnClick="true"/>
+                    <controls:RadioMenuItem Header="Diagnostics" StaysOpenOnClick="true"/>
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="_Help" DockPanel.Dock="Right">
-                <MenuItem Header="_About" Command="ApplicationCommands.Help"/>
-                <MenuItem Header="_Documentation" Icon="💡"/>
+                <MenuItem Header="About" Command="ApplicationCommands.Help"/>
+                <MenuItem Header="Documentation" Command="ApplicationCommands.PrintPreview"/>
             </MenuItem>
         </controls:Menu>
-        <Border Grid.Row="2" BorderThickness="0 1 0 0" BorderBrush="Gray">
+        <ScrollViewer Grid.Row="1"
+                Grid.Column="0"
+                FontSize="25"
+                VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <Border BorderThickness="0 1 0 1"
+                    BorderBrush="DarkGray"
+                    Padding="8">
+                <StackPanel>
+                    <controls:CheckBox IsEnabled="False" IsChecked="{x:Null}" IsThreeState="true">Disabled Unset</controls:CheckBox>
+                    <controls:CheckBox IsEnabled="False" IsChecked="true" IsThreeState="true">Disabled True</controls:CheckBox>
+                    <controls:CheckBox IsEnabled="False" IsChecked="false" IsThreeState="true">Disabled False</controls:CheckBox>
+                    <controls:CheckBox IsChecked="true">Two-state True</controls:CheckBox>
+                    <controls:CheckBox IsChecked="false">Two-state False</controls:CheckBox>
+                    <controls:CheckBox IsChecked="{x:Null}">Two-state Unset</controls:CheckBox>
+                    <controls:CheckBox IsChecked="true" IsThreeState="true">Three-state True</controls:CheckBox>
+                    <controls:CheckBox IsChecked="false" IsThreeState="true">Three-state False</controls:CheckBox>
+                    <controls:CheckBox BackgroundNormal="LightYellow" NullValue="Red" IsChecked="{x:Null}" IsThreeState="true">Three-state Unset</controls:CheckBox>
+                    <controls:RadioButton IsChecked="{x:Null}" TrueValue="Blue" IsThreeState="true">A, Three-state</controls:RadioButton>
+                    <controls:RadioButton IsThreeState="true">B</controls:RadioButton>
+                    <controls:RadioButton IsChecked="{x:Null}" NullValue="Plum" Frame="Plum" IsThreeState="true">C, Three-state</controls:RadioButton>
+                    <controls:RadioButton BackgroundNormal="Yellow" IsChecked="true" IsThreeState="true">D</controls:RadioButton>
+                </StackPanel>
+            </Border>
+        </ScrollViewer>
+        <Border Grid.Row="1" Grid.Column="1" BorderThickness="1 1 0 1" BorderBrush="DarkGray">
+        </Border>
+        <Border Grid.Row="2" Grid.ColumnSpan="2" >
             <StatusBar Padding="12 4 12 4" FontSize="20">
                 <StatusBarItem>
-                    <StackPanel>
-                        <TextBlock x:Name="toggle">Enable Save:</TextBlock>
-                        <CheckBox  x:Name="checkBox" HorizontalAlignment="Left"/>
-                    </StackPanel>
+                    <controls:CheckBox x:Name="checkBox">Enable Save</controls:CheckBox>
                 </StatusBarItem>
             </StatusBar>
         </Border>

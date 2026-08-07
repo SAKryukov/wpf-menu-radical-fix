@@ -11,6 +11,12 @@ Replaces WPF `System.Windows.Controls.Menu` and `System.Windows.Controls.Context
 * Separators are controllable. Now they span the entire width of a vertical menu or a submenu by default.
 * All essential stylistic properties on the menu inner content are exposed, so there is no need to write menu templates.
 
+Additionally implemented and seriously corrected:
+* `CheckBox`
+* `RadioButton`
+
+***A new feature is the innovative*** `RadioMenuItem`. Radio items are grouped using `RadioMenuItemGroup` property of type `System.Object`. This way, the groups can be bound to the framework elements.
+
 [Detailed help](https://sakryukov.github.io/wpf-menu-radical-fix/help.html)
 
 Usage demo: [Pre-built code sample](https://github.com/SAKryukov/wpf-menu-radical-fix/releases/download/latest-build/Sanitized-menu.full-build.zip)

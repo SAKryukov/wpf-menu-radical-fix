@@ -1,0 +1,21 @@
+<Viewbox x:Class="SA.Agnostic.UI.Controls.GraphicalCheckBox"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:system="clr-namespace:System;assembly=netstandard"
+         Stretch="Uniform">
+
+    <Viewbox.Resources>
+        <system:Double x:Key="radius">64</system:Double>
+    </Viewbox.Resources>
+
+    <Canvas Width="640" Height="640">
+        <Rectangle x:Name="frame" Width="640" Height="640" StrokeThickness="60.0" RadiusX="{StaticResource radius}" RadiusY="{StaticResource radius}"/>
+        <Rectangle x:Name="isCheckedNull" Canvas.Left="160" Canvas.Top="160" Width="320" Height="320" RadiusX="{StaticResource radius}" RadiusY="{StaticResource radius}"/>
+        <Path x:Name="isCheckedBool">
+            <Path.Data>
+                <PathGeometry Figures="M 96 256 L 288 383.524 L 544 64 L 288 509.777 Z"/>
+            </Path.Data>
+        </Path>
+    </Canvas>
+
+</Viewbox>

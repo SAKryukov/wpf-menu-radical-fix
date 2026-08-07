@@ -10,8 +10,8 @@ using MenuBase = System.Windows.Controls.Primitives.MenuBase;
 
 public class Nicety : DependencyObject {
 
-    public Nicety() : this (MenuResourceHost.Instance.GetObject<DefaultSet>()) { }
-    Nicety(DefaultSet defaultSet) {
+    public Nicety() : this (MenuResourceHost.Instance.GetObject<MenuDefaultSet>()) { }
+    Nicety(MenuDefaultSet defaultSet) {
         SeparatorMargin = new Thickness(0, defaultSet.SeparatorVerticalGap, 0, defaultSet.SeparatorVerticalGap);        
     } //Nicety
 
@@ -163,7 +163,7 @@ public class Nicety : DependencyObject {
     internal static DependencyProperty ContextMenuNicetyProperty { get => contextMenuNicetyProperty; }
 
     static Nicety Initialize() {
-        DefaultSet defaultSet = MenuResourceHost.Instance.GetObject<DefaultSet>();
+        MenuDefaultSet defaultSet = MenuResourceHost.Instance.GetObject<MenuDefaultSet>();
         if (isDefault) return new Nicety(defaultSet);
         OverrideProperty(LineBrushProperty, defaultSet.LineBrush);
         OverrideProperty(BorderThicknessProperty, defaultSet.BorderThickness);
@@ -212,5 +212,12 @@ public class Nicety : DependencyObject {
             return nicety;
         } //Setup
     } //ResouceInitializer
+
+    internal static class ResouceInitializerRadioMenuItem {
+        internal static void Setup(RadioMenuItem item) {
+            item.ToolTip = "radio";
+            item.Resources.MergedDictionaries.Add(MenuResourceHost.Instance.Resources);           
+        } //Setup
+    } //class ResouceInitializerRadioMenuItem
 
 } //class Nicety

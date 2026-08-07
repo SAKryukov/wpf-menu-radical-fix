@@ -1,0 +1,22 @@
+<Viewbox x:Class="SA.Agnostic.UI.Controls.GraphicalRadioButton"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         Stretch="Uniform">
+    <Canvas UseLayoutRounding="False" Width="640.0" Height="640.0">
+        <Ellipse x:Name="frame"
+                Width="640"
+                Height="640"
+                StrokeThickness="64"/>
+        <Ellipse x:Name="isCheckedBool"
+                Canvas.Left="140"
+                Canvas.Top="140"
+                Width="360"
+                Height="360"/>
+        <Path x:Name="isCheckedNull"
+                StrokeThickness="64" StrokeEndLineCap="Round" StrokeStartLineCap="Round">
+            <Path.Data>
+                <PathGeometry Figures="M 30 610 L 610 40"/>
+            </Path.Data>
+        </Path>
+    </Canvas>
+</Viewbox>

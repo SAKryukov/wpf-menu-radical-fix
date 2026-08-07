@@ -4,7 +4,7 @@ using Thickness = System.Windows.Thickness;
 using HorizontalAlignment = System.Windows.HorizontalAlignment;
 using VerticalAlignment = System.Windows.VerticalAlignment;
 
-public class DefaultSet {
+public class MenuDefaultSet {
     public Brush LineBrush { get; set; }
     public Thickness BorderThickness { get; set; }
     public double CornerRadius { get; set; }
@@ -14,7 +14,7 @@ public class DefaultSet {
     public Background Background { get; set; }
     public Foreground Foreground { get; set; }
     public Margin Margin { get; set; }
-} //DefaultSet
+} //MenuDefaultSet
 
 public class IconAlignment {
     public HorizontalAlignment Horizontal { get; set; }
