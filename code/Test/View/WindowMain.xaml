@@ -84,10 +84,10 @@
                 <MenuItem IsCheckable="true" Header="Debug" StaysOpenOnClick="true"/>
                 <Separator/>
                 <MenuItem Header="Verbosity..." Icon="💬" StaysOpenOnClick="true">
-                    <controls:RadioMenuItem Header="Quiet" IsChecked="true" StaysOpenOnClick="true" RadioMenuItemGroup="aaa"/>
-                    <controls:RadioMenuItem Header="Minimal" StaysOpenOnClick="true" RadioMenuItemGroup="aaa"/>
-                    <controls:RadioMenuItem Header="Normal" StaysOpenOnClick="true" RadioMenuItemGroup="aaa"/>
-                    <controls:RadioMenuItem Header="Detailed" StaysOpenOnClick="true" RadioMenuItemGroup="aaa"/>
+                    <controls:RadioMenuItem Header="Quiet" IsChecked="true" StaysOpenOnClick="true" RadioMenuItemGroup="{Binding ElementName=checkBox}"/>
+                    <controls:RadioMenuItem Header="Minimal" StaysOpenOnClick="true" RadioMenuItemGroup="{Binding ElementName=checkBox}"/>
+                    <controls:RadioMenuItem Header="Normal" StaysOpenOnClick="true" RadioMenuItemGroup="{Binding ElementName=checkBox}"/>
+                    <controls:RadioMenuItem Header="Detailed" StaysOpenOnClick="true" RadioMenuItemGroup="{Binding ElementName=checkBox}"/>
                     <Separator/>
                     <controls:RadioMenuItem Header="Names" StaysOpenOnClick="true" IsChecked="true"/>
                     <controls:RadioMenuItem Header="Types" StaysOpenOnClick="true"/>

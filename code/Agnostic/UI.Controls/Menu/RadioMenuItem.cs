@@ -9,13 +9,16 @@ public class RadioMenuItem : System.Windows.Controls.MenuItem {
         IsCheckable = true; 
     } //RadioMenuItem
     
+    bool firstClick = false;
     protected override void OnClick() {
+        firstClick = true;
         IsCheckable = true; // important: for the case the user makes it false
         base.OnClick();
     } //OnClick
 
     protected override void OnChecked(RoutedEventArgs e) {
         base.OnChecked(e);
+        if (!firstClick) return;
         if (Parent is ItemsControl parent)
             foreach (var element in parent.Items) {
                 if (element == this) continue;
