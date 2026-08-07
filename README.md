@@ -1,6 +1,8 @@
 # WPF Menu Radical Fix
 
 ![Menu](https://sakryukov.github.io/wpf-menu-radical-fix/result.webp)
+[Help](https://sakryukov.github.io/wpf-menu-radical-fix/help.html)
+[Pre-built demo](https://github.com/SAKryukov/wpf-menu-radical-fix/releases/download/latest-build/Sanitized-menu.full-build.zip)
 
 Replaces WPF `System.Windows.Controls.Menu` and `System.Windows.Controls.ContextMenu` and fixes long-standing issues:
 
