@@ -1,4 +1,7 @@
 ﻿namespace SA;
+
+using System;
+using System.Windows.Controls;
 using System.Windows.Input;
 public partial class WindowMain {
 
@@ -25,6 +28,11 @@ public partial class WindowMain {
         System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo {
             FileName = uri,
             UseShellExecute = true
-        });        
+        });
+
+    protected override void OnContentRendered(EventArgs e) {
+        base.OnContentRendered(e);
+        checkBox.Focus();
+    } //OnContentRendered
 
 } //class WindowMain
