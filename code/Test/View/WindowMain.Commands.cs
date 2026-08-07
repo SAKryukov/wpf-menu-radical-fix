@@ -1,8 +1,5 @@
 ﻿namespace SA;
 using System.Windows.Input;
-using PlacementMode = System.Windows.Controls.Primitives.PlacementMode;
-using EditingCommands = System.Windows.Documents.EditingCommands;
-
 public partial class WindowMain {
 
     void AddCommandBindings() {
@@ -15,6 +12,11 @@ public partial class WindowMain {
         CommandBindings.Add(new CommandBinding(
             ApplicationCommands.Help,
             (_, _) => ShowDocumentation(DefinitionSet.Repository),
+            (_, eventArgs) => { eventArgs.CanExecute = true; }));
+
+        CommandBindings.Add(new CommandBinding(
+            ApplicationCommands.Close,
+            (_, _) => Close(),
             (_, eventArgs) => { eventArgs.CanExecute = true; }));
 
     } //AddCommandBindings

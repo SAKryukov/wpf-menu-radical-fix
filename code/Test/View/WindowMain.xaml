@@ -34,6 +34,13 @@
                 <MenuItem Header="About" Command="ApplicationCommands.Help" Icon="🎲"/>
                 <MenuItem Header="Documentation" Command="ApplicationCommands.PrintPreview"/>
             </MenuItem>
+                <MenuItem Header="Quit" Command="ApplicationCommands.Close">
+                    <MenuItem.Icon>
+                        <Border Background="{StaticResource contextMenu}">
+                            <TextBlock Foreground="Red">❌</TextBlock>
+                        </Border>
+                    </MenuItem.Icon>
+                </MenuItem>
         </controls:ContextMenu>
     </Window.ContextMenu>
 
@@ -67,7 +74,14 @@
                 <MenuItem Header="Save" Command="ApplicationCommands.Save" Icon="💰"/>
                 <MenuItem Header="Save As..." StaysOpenOnClick="true"/>
                 <Separator/>
-                <MenuItem Header="Help..." Icon="💡"/>
+                <MenuItem Header="Close All"/>
+                <MenuItem Header="Quit" Command="ApplicationCommands.Close">
+                    <MenuItem.Icon>
+                        <Border Background="{StaticResource menu}">
+                            <TextBlock Foreground="Red">❌</TextBlock>
+                        </Border>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="_View">
                 <MenuItem Header="Toolbar" IsCheckable="true" StaysOpenOnClick="true"/>
